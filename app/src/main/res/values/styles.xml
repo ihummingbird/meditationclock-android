@@ -1,0 +1,3 @@
+<style name="FullScreenTheme" parent="@android:style/Theme.NoTitle.Fullscreen">
+    <!-- Add any other customizations here -->
+</style>

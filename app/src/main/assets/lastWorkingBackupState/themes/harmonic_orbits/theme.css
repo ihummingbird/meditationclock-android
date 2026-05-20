@@ -1,0 +1,91 @@
+/* Base Container */
+#harmonic-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(var(--orb-zoom, 1));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vmin; /* Responsive to viewport */
+    height: 80vmin;
+    max-width: 600px;
+    max-height: 600px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* The Breathing Center */
+.orb-center {
+    position: absolute;
+    width: 15%;
+    height: 15%;
+    border-radius: 50%;
+    background: radial-gradient(circle, hsla(var(--orb-hue, 210), 80%, 70%, 0.8) 0%, transparent 70%);
+    box-shadow: 0 0 calc(var(--orb-glow, 20) * 2px) hsla(var(--orb-hue, 210), 80%, 60%, 0.5);
+    animation: orb-breathe 4s infinite alternate ease-in-out;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Optional Center Text */
+.orb-time-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(12px, 3vmin, 18px);
+    color: rgba(255, 255, 255, 0.7);
+    text-shadow: 0 0 10px hsla(var(--orb-hue, 210), 100%, 70%, 0.8);
+    opacity: var(--text-opacity, 0);
+    transition: opacity 0.5s;
+}
+
+/* Orbital Rings */
+.orbit-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid hsla(var(--orb-hue, 210), 50%, 50%, 0.15);
+    box-shadow: inset 0 0 20px hsla(var(--orb-hue, 210), 50%, 50%, 0.05);
+}
+
+.orbit-hours { width: 40%; height: 40%; }
+.orbit-minutes { width: 70%; height: 70%; }
+.orbit-seconds { width: 100%; height: 100%; }
+
+/* The Moving Orbs (Planets) */
+.orb-planet {
+    position: absolute;
+    top: -5px; /* Half of height to center on the ring edge */
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 calc(var(--orb-glow, 20) * 1px) calc(var(--orb-glow, 20) * 0.2px) hsla(var(--orb-hue, 210), 100%, 60%, 0.8);
+}
+
+.planet-hours { width: 14px; height: 14px; top: -7px; }
+.planet-minutes { width: 10px; height: 10px; }
+.planet-seconds { width: 6px; height: 6px; top: -3px; }
+
+/* Rotation Wrappers */
+.rotator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes orb-breathe {
+    0% { transform: scale(0.9); opacity: 0.6; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+/* Background Atmosphere */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(circle at center, hsla(var(--orb-hue, 210), 30%, 10%, 1) 0%, #000000 100%);
+    z-index: -1;
+    transition: background 1s;
+}

@@ -1,0 +1,40 @@
+package com.ihummingbird.meditationclock
+
+import android.app.Activity
+import android.os.Bundle
+import android.webkit.WebView
+import android.webkit.WebChromeClient
+import android.webkit.WebViewClient
+
+class MainActivity : Activity() { // Changed from AppCompatActivity to Activity
+    private lateinit var webView: WebView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        webView = WebView(this)
+
+        // Enable JavaScript
+        webView.settings.javaScriptEnabled = true
+
+        // CRITICAL for your app: Enables localStorage in JS!
+        webView.settings.domStorageEnabled = true
+
+        // Prevents links from opening in the external browser
+        webView.webViewClient = WebViewClient()
+        webView.webChromeClient = WebChromeClient()
+
+        setContentView(webView)
+
+        // Load your local files
+        webView.loadUrl("file:///android_asset/index.html")
+    }
+
+    override fun onBackPressed() {
+        if (webView.canGoBack()) {
+            webView.goBack()
+        } else {
+            super.onBackPressed()
+        }
+    }
+}

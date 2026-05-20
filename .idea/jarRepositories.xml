@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="4bc92c2e-fede-4b85-927b-7d8753fc1a51" />
+      <option name="name" value="4bc92c2e-fede-4b85-927b-7d8753fc1a51" />
+      <option name="url" value="https://mirror-maven.runflare.com/maven2" />
+    </remote-repository>
+  </component>
+</project>
