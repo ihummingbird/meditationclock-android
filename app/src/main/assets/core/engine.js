@@ -22,6 +22,7 @@ const Engine = {
         { id: 'vision_os_reborn', name: '☆ Vision OS Reborn' },
         { id: 'spatial_aura_reborn', name: '☆ Spatial Aura Reborn' },
         { id: 'vision_os', name: '☆ Vision OS' },
+        
 
 
         
@@ -29,7 +30,7 @@ const Engine = {
         { id: 'machinarium', name: '☆ Machinarium' },
         { id: 'zenenso', name: '☆ Zen Enso' },
         { id: 'lumen_bloom', name: '☆ Lumen Bloom' },
-        
+        { id: 'etherial_bloom', name: 'Etherial Bloom' },
 
         { id: 'lcd', name: 'Retro LCD' },
         { id: 'vision_glass', name: 'Vision Glass' },
@@ -53,13 +54,24 @@ const Engine = {
         { id: 'something_google_would_create', name: 'Material Theme' },
         
         { id: 'astral_geometry', name: 'Astral Geometry' },
-        { id: 'etherial_bloom', name: 'Etherial Bloom' },
+        
         
         
         
 
         //{ id: 'seven_segment_2', name: 'Digital Display' },  --deprecated
-        
+        { id: 'astral_mandala', name: 'Astral Mandala' },
+        { id: 'aether_dial', name: 'Aether Dial' },
+        { id: 'celestial_vault', name: 'Celestial Vault' },
+        { id: 'titan_mechanism', name: 'Titan Mechanism' },
+        { id: 'analogigity', name: 'Machina Astra' },
+        { id: 'analog_chronograph', name: 'Analog Chronograph' },
+        { id: 'aurora_drift', name: 'Aurora Drift' },
+        { id: 'particle_constellation', name: '✦ Particle Constellation' },
+        { id: 'orrery', name: 'Orrery' },
+        { id: 'tesseract', name: 'Tesseract' },
+
+
         
         
 
@@ -450,6 +462,7 @@ const Engine = {
         // --- DISCLAIMER BOX ---
         const warningBox = document.createElement('div');
         warningBox.style.marginTop = '12px';
+        warningBox.style.marginBottom = '12px';
         warningBox.style.padding = '10px';
         warningBox.style.background = 'rgba(255, 59, 48, 0.1)'; // Red tint
         warningBox.style.border = '1px solid rgba(255, 59, 48, 0.2)';
@@ -460,7 +473,7 @@ const Engine = {
         warningBox.style.display = this.state.stopwatchMode ? 'block' : 'none'; // Only show if ON
         warningBox.innerHTML = `
             <strong>⚠ EXPERIMENTAL</strong><br>
-            Some themes may not animate correctly in this mode. Recommended setting is <strong>OFF</strong>.
+            Some themes may not animate correctly in stopwatch mode. Recommended setting is <strong>OFF</strong>.
         `;
         sysBox.appendChild(warningBox);
 
